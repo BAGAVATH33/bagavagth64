@@ -1,0 +1,70 @@
+// App.jsx
+import React from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Github, Mail } from "lucide-react";
+
+const projects = [
+  {
+    title: "Weather App",
+    description: "A weather app using OpenWeatherMap API with geolocation and theme switcher.",
+    link: "https://github.com/yourusername/weather-app"
+  },
+  {
+    title: "Portfolio Website",
+    description: "This portfolio built with React and Tailwind CSS.",
+    link: "https://yourportfolio.com"
+  },
+];
+
+export default function App() {
+  return (
+    <main className="min-h-screen bg-gray-50 text-gray-900 p-4 space-y-16">
+      {/* Hero Section */}
+      <section className="text-center space-y-4">
+        <h1 className="text-4xl font-bold">Hi, bagavath 👋</h1>
+        <p className="text-lg">Frontend Developer • React Enthusiast • UI/UX Explorer</p>
+        <div className="flex justify-center gap-4">
+          <Button asChild>
+            <a href="mailto:alex@example.com"><Mail className="mr-2" /> Contact Me</a>
+          </Button>
+          <Button variant="outline" asChild>
+            <a href="https://github.com/yourusername"><Github className="mr-2" /> GitHub</a>
+          </Button>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="max-w-2xl mx-auto space-y-4">
+        <h2 className="text-2xl font-semibold">About Me</h2>
+        <p>
+          I'm a digital marketting strategist&web desingner on building responsive, accessible, and beautiful web apps.
+          I love working with React, Tailwind, and modern frontend tools to bring ideas to life.
+        </p>
+      </section>
+
+      {/* Projects Section */}
+      <section className="max-w-4xl mx-auto space-y-8">
+        <h2 className="text-2xl font-semibold text-center">Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project, idx) => (
+            <Card key={idx}>
+              <CardContent className="p-4 space-y-2">
+                <h3 className="text-xl font-bold">{project.title}</h3>
+                <p>{project.description}</p>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                  View Project
+                </a>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <footer className="text-center text-sm text-gray-500 py-6">
+        &copy; {new Date().getFullYear()} bagavath. All rights reserved.
+      </footer>
+    </main>
+  );
+}
